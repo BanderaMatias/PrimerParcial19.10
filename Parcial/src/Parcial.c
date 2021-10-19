@@ -47,6 +47,7 @@ int main(void) {
 		printf("Hubo un error al inicializar el array");
 		salir=1;
 	}
+	/*
 	hardcodeoSalones(listaSalones,100,"Salon1","Dirreccion1",1,0);
 	hardcodeoSalones(listaSalones,200,"Salon2","Dirreccion2",1,1);
 	hardcodeoSalones(listaSalones,300,"Salon3","Dirreccion3",0,2);
@@ -69,13 +70,13 @@ int main(void) {
 	hardcodeoArcades(listaArcades,1400,"Nacionalidad14",1,1,23,2,"Los sims",13);
 	hardcodeoArcades(listaArcades,1500,"Nacionalidad15",1,23,23,3,"Los sims2",14);
 	hardcodeoArcades(listaArcades,1600,"Nacionalidad16",1,1,23,5,"Los sims",15);
-
+	*/
 
 
 
 	
 	while(salir == 0){
-		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		
 		printf("\n1) ALTA DE SALON \n2) ELIMINAR SALON \n3) IMPRIMIR SALONES \n4) INCORPORAR ARCADE \n5) MODIFICAR ARCADE \n6) ELIMINAR ARCADE \n7) IMPRIMIR ARCADES \n8) IMPRIMIR JUEGOS \n9) INFORMES\n10)SALIR");
 		pedirStringEntero(&menu,"\nSelecionar -->", "No es una opcion valida",0,10, REINTENTOS);
 
@@ -202,6 +203,7 @@ int main(void) {
 			}
 			case 10:{
 				salir=1;
+				break;
 			}
 			default:{
 
@@ -210,7 +212,7 @@ int main(void) {
 		}
 
 		system("\npause");
-		
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 	}
 
 
