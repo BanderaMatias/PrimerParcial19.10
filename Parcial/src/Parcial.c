@@ -75,6 +75,7 @@ int main(void) {
 
 	
 	while(salir == 0){
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		printf("\n1) ALTA DE SALON \n2) ELIMINAR SALON \n3) IMPRIMIR SALONES \n4) INCORPORAR ARCADE \n5) MODIFICAR ARCADE \n6) ELIMINAR ARCADE \n7) IMPRIMIR ARCADES \n8) IMPRIMIR JUEGOS \n9) INFORMES\n10)SALIR");
 		pedirStringEntero(&menu,"\nSelecionar -->", "No es una opcion valida",0,10, REINTENTOS);
 
@@ -209,7 +210,7 @@ int main(void) {
 		}
 
 		system("\npause");
-		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		
 	}
 
 
