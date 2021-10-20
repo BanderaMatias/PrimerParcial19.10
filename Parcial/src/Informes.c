@@ -257,13 +257,14 @@ void salonesCompletos(Salones listaSalones[],int tamSalones,Arcades listaArcades
             }
             
         }
-        if (flagAlmenosUno==0)
-        {
-            printf("No hay ningun arcade esquipado totalmente");
-        }
+        
         
         
     }
+	if (flagAlmenosUno==0)
+        {
+            printf("No hay ningun arcade esquipado totalmente");
+        }
     
 }
 void promedioArcades(Salones listaSalones[],int tamSalones,Arcades listaArcades[],int tamArcades)
