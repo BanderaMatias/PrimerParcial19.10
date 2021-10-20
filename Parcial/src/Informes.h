@@ -80,6 +80,8 @@ void montoMaximo(Salones listaSalones[],int tamSalones,Arcades listaArcades[],in
  * @param tamArcades 
  */
 void buscarPorJuego(Arcades listaArcades[],int tamArcades);
+void promedioArcades(Salones listaSalones[],int tamSalones,Arcades listaArcades[],int tamArcades);
+void salonesCompletos(Salones listaSalones[],int tamSalones,Arcades listaArcades[],int tamArcades);
 
 
 

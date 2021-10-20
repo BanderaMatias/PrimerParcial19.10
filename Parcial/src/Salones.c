@@ -46,11 +46,11 @@ int crearSalon(Salones* lista, int tam,int* AIID){
 
 			lista[i].id= *AIID;
 
-			if(pedirStringTexto(lista[i].nombre,TAMANIO_STIRNG, "Ingrese el nombre del salon: ", "\nEl nombre ingresado es incorrecto",REINTENTOS) == 0)break;
+			if(pedirStringTexto(lista[i].nombre,TAMANIO_STIRNG, "Ingrese el nombre del salon: ", "\nEl nombre ingresado es incorrecto\n",REINTENTOS) == 0)break;
 
-			if(pedirStringTexto(lista[i].direccion, TAMANIO_STIRNG, "Ingrese la direccion del salon: ", "\nLa direccion del salon es incorrecta",REINTENTOS)==0)break;
+			if(pedirStringTexto(lista[i].direccion, TAMANIO_STIRNG, "Ingrese la direccion del salon: ", "\nLa direccion del salon es incorrecta\n",REINTENTOS)==0)break;
 
-			if(pedirStringEntero(&lista[i].tipo, "Ingrese el tipo de salon(0:Shopping-1:Local): ", "\nEl valor ingresado es incorrecto o no es un numero.", 0, 1, REINTENTOS)==0)break;
+			if(pedirStringEntero(&lista[i].tipo, "Ingrese el tipo de salon(0:Shopping-1:Local): ", "\nEl valor ingresado es incorrecto o no es un numero.\n", 0, 1, REINTENTOS)==0)break;
 
 			lista[i].isEmpty =1;
 
@@ -68,22 +68,22 @@ int crearSalon(Salones* lista, int tam,int* AIID){
 /*
  * return = 0 Los paramatros que pasaron no son compatibles
  * reutrn = i Encontro el ID que buscaba
- * return = -1 nose encontro el ID
+ * 
  */
 
 int buscarSalonesId(Salones* lista, int tam,int id){
 
-	int retorno = ERROR;
-
+	int retorno =ERROR;
+	
 	for(int i = 0; i < tam ; i++){
 
 		if(lista[i].id == id && lista[i].isEmpty ==1){
-
+			
 			retorno = i;
 
 			break;
 		}
-		retorno = -1;
+		retorno = 0;
 
 	}
 	return retorno;

@@ -220,4 +220,72 @@ void buscarPorJuego(Arcades listaArcades[],int tamArcades){
 
     
 }
+/*SEGUNDA PARTE*/
+int cantidadArcadesDosJugadores(Salones listaSalones[],int tamSalones,Arcades listaArcades[],int tamArcades,int idSalon){
+    
+    int contadorArcades=0;
 
+    for (int i = 0; i < tamArcades; i++)
+    {
+        if (listaArcades[i].isEmpty==OCUPADO)
+        {
+            if (listaArcades[i].idSalon==idSalon && listaArcades[i].cantJugadores>2)
+            {
+               contadorArcades++;
+            }
+            
+        }
+        
+    }
+    return contadorArcades;
+}
+void salonesCompletos(Salones listaSalones[],int tamSalones,Arcades listaArcades[],int tamArcades){
+    
+    int contadorArcades;
+    int flagAlmenosUno=0;
+    for (int i = 0; i < tamSalones; i++)
+    {
+        if(listaSalones[i].isEmpty==OCUPADO)
+        {
+            contadorArcades= cantidadArcadesDosJugadores(listaSalones,tamSalones,listaArcades,tamArcades,listaSalones[i].id);
+            
+            if (contadorArcades>=8)
+            {
+             
+            printf("\nID:%d Nombre:%s Direccion:%s Tipo:%d",listaSalones[i].id,listaSalones[i].nombre,listaSalones[i].direccion,listaSalones[i].tipo);
+            flagAlmenosUno++;
+            }
+            
+        }
+        if (flagAlmenosUno==0)
+        {
+            printf("No hay ningun arcade esquipado totalmente");
+        }
+        
+        
+    }
+    
+}
+void promedioArcades(Salones listaSalones[],int tamSalones,Arcades listaArcades[],int tamArcades)
+{
+    int arcades=0;
+    int contadorArcades=0;
+    int contadorSalones=0;
+    float promedio=0;
+
+    for (int i = 0; i < tamSalones; i++)
+    {
+        if(listaSalones[i].isEmpty==OCUPADO)
+        {
+         arcades= cantidadArcades(listaSalones,tamSalones,listaArcades,tamArcades,listaSalones[i].id);
+            contadorSalones++;
+            contadorArcades = contadorArcades + arcades;
+        }
+    }
+
+    if(contadorSalones!=0){
+    promedio= (float) contadorArcades/contadorSalones;
+    }
+
+    printf("El promedio de Arcades por salon es %f", promedio);
+}

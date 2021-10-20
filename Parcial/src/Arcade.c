@@ -41,7 +41,8 @@ int inicializarArcades(Arcades* lista, int tam){
 int crearArcade(Arcades* lista, int tam, int* AIID,Salones* listaSalones){
 
 	int retorno = ERROR;
-	int encontroId;
+	int bufferID;
+	int encontroId=0;
 
 
 	
@@ -52,17 +53,19 @@ int crearArcade(Arcades* lista, int tam, int* AIID,Salones* listaSalones){
 
 			lista[i].id = *AIID;
 
-			if(pedirStringTexto(lista[i].nacionalidad,TAMANIO_STIRNG, "Ingrese la nacionalidad: ", "El nombre ingresado es incorrecto",REINTENTOS) == ERROR)break;
+			if(pedirStringTexto(lista[i].nacionalidad,TAMANIO_STIRNG, "Ingrese la nacionalidad: ", "El nombre ingresado es incorrecto\n",REINTENTOS) == ERROR)break;
 
-			if(pedirStringEntero(&lista[i].tipoSonido, "Ingrese el tipo de sonido(0:Estereo-1:Mono): ", "El valor ingresado es incorrecto o no es un numero.", ESTEREO, MONO, REINTENTOS)==ERROR)break;
+			if(pedirStringEntero(&lista[i].tipoSonido, "Ingrese el tipo de sonido(0:Estereo-1:Mono): ", "El valor ingresado es incorrecto o no es un numero.\n", ESTEREO, MONO, REINTENTOS)==ERROR)break;
 			
-            if(pedirStringEntero(&lista[i].cantJugadores, "Ingrese la cantidad de jugadores que permite: ", "El valor ingresado es incorrecto o no es un numero.", 1, INT_MAX, REINTENTOS)==ERROR)break;
+            if(pedirStringEntero(&lista[i].cantJugadores, "Ingrese la cantidad de jugadores que permite (1-6): ", "El valor ingresado es incorrecto o no es un numero.\n", 1, 6, REINTENTOS)==ERROR)break;
             
-            if(pedirStringEntero(&lista[i].capacidadFichas, "Ingrese la cantidad de fichas que almacena: ", "El valor ingresado es incorrecto o no es un numero.", 1, INT_MAX, REINTENTOS)==ERROR)break;
+            if(pedirStringEntero(&lista[i].capacidadFichas, "Ingrese la cantidad de fichas que almacena: ", "El valor ingresado es incorrecto o no es un numero.\n", 1, INT_MAX, REINTENTOS)==ERROR)break;
 
-            if(pedirStringEntero(&lista[i].idSalon, "Ingrese el ID del salon al cuall pertenece: ", "El valor ingresado es incorrecto o no es un numero.", 0, INT_MAX, REINTENTOS)==ERROR)break;
-            
-			encontroId = buscarSalonesId(listaSalones,tam,lista[i].idSalon);
+            if(pedirStringEntero(&lista[i].idSalon, "Ingrese el ID del salon al cuall pertenece: ", "El valor ingresado es incorrecto o no es un numero.\n", 0, INT_MAX, REINTENTOS)==ERROR)break;
+
+			bufferID=lista[i].idSalon;
+
+			encontroId = buscarSalonesId(listaSalones,tam,bufferID);
 			
 			if(encontroId==-1 || encontroId==0){
 				printf("El ID ingresado no corresponde a un salon, cargue el arcade nuevamente");
@@ -71,7 +74,7 @@ int crearArcade(Arcades* lista, int tam, int* AIID,Salones* listaSalones){
 			}
 
 
-			if(pedirStringTexto(lista[i].juego, TAMANIO_STIRNG, "Ingrese el nombre del juego que posee: ", "El valos ingresado es incorrecto",REINTENTOS)==ERROR)break;
+			if(pedirStringTexto(lista[i].juego, TAMANIO_STIRNG, "Ingrese el nombre del juego que posee: ", "El valos ingresado es incorrecto\n",REINTENTOS)==ERROR)break;
 
 
 			lista[i].isEmpty =1;
@@ -89,12 +92,12 @@ int crearArcade(Arcades* lista, int tam, int* AIID,Salones* listaSalones){
 }
 
 int buscarPorId(Arcades* lista, int tam,int id){
-
+	
 	int retorno = ERROR;
 
 	for(int i = 0; i < tam ; i++){
-
-		if(lista[i].id == id && lista[i].isEmpty ==1){
+		
+		if(lista[i].id == id && lista[i].isEmpty ==EXITO){
 
 			retorno = i;
 
@@ -113,7 +116,7 @@ int modificarArcade(Arcades* lista, int tam){
 	int juego;
 
 	imprimirArcades(lista,tam);
-	pedirStringEntero(&modificarId, "Ingrese el ID del arcade que desea modificar", "El valor ingresado es incorrecto o no es un numero.", 1, INT_MAX, REINTENTOS);
+	pedirStringEntero(&modificarId, "Ingrese el ID del arcade que desea modificar", "El valor ingresado es incorrecto o no es un numero.\n", 1, INT_MAX, REINTENTOS);
 
 
 	int index = buscarPorId(lista, tam,modificarId);
@@ -124,7 +127,7 @@ int modificarArcade(Arcades* lista, int tam){
 		
 		if (cantJugadores == 1)
 		{
-			pedirStringEntero(&lista[index].cantJugadores, "Ingrese la cantidad de jugadores que permite: ", "El valor ingresado es incorrecto o no es un numero.", 1, INT_MAX, REINTENTOS);
+			pedirStringEntero(&lista[index].cantJugadores, "Ingrese la cantidad de jugadores que permite (1-6): ", "El valor ingresado es incorrecto o no es un numero.", 1, 6, REINTENTOS);
 		}
 
 		pedirStringEntero(&juego, "Dese modificar el Juego? 1(SI) 2(NO)", "El valor ingresado es incorrecto o no es un numero.", 1, 2, REINTENTOS);
